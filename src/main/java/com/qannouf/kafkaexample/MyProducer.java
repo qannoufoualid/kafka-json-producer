@@ -19,17 +19,13 @@ public class MyProducer {
 
 	private static Scanner in;
     public static void main(String[] argv)throws Exception {
-        if (argv.length != 1) {
-            System.err.println("Please specify 1 parameters ");
-            System.exit(-1);
-        }
-        String topicName = argv[0];
+        String topicName = "input";
         in = new Scanner(System.in);
         System.out.println("Enter message(type exit to quit)");
 
         //Configure the Producer
         Properties configProperties = new Properties();
-        configProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9093");
+        configProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
         configProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
